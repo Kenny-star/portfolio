@@ -38,9 +38,9 @@ const Projects = () => {
             <BlogCard key={idx}>
               {console.log(data)}
               
-            {/* <img src={data.mainImage.asset.url}
+            <img src={data.mainImage.asset.url}
           alt={data.mainImage.alt}
-          /> */}
+          />
               <TitleContent>
                 <HeaderThree title>{data.title}</HeaderThree>
                 <Hr />
