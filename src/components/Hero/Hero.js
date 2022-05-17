@@ -1,24 +1,50 @@
-import React from 'react';
-
+import React, {useState, useEffect} from 'react';
 import { Section, SectionText, SectionTitle } from '../../styles/GlobalComponents';
 import Button from '../../styles/GlobalComponents/Button';
 import { LeftSection } from './HeroStyles';
+import sanityClient from '../../helper/client.js';
+import profil from '../../../eportfolio/schemas/profil';
 
-const Hero = (props) => (
-  <>
+const Hero = () => {
+  const [postData, setData] = useState();
+
+  useEffect(()=>{
+    sanityClient.fetch(`*[_type == "profil"]{
+      mainImage{
+        asset->{
+          _id,
+          url
+        },
+        alt
+      }
+    }`).then((data)=> setData(data))
+    .catch(console.error);
+  }, []);
+
+  return(
+  <><br />
     <Section row nopadding>
       <LeftSection>
         <SectionTitle main center>
-          Welcome To <br />
-          My Personal Portfolio
+          Kenny Luo-Li <br />
         </SectionTitle>
         <SectionText>
-        The purpose of JavaScript Mastery is to help aspiring and established developers to take their development skills to the next level and build awesome apps.
+        <strong>Full-Stack Developer</strong><br />
+        <strong>Mobile Developer</strong><br />
+        <strong>IoT Developer</strong><br />
         </SectionText>
-        <Button onClick={props.handleClick}>Learn More</Button>
       </LeftSection>
+      
+
     </Section>
+    {postData && postData.map((data, idx) => (
+        <>
+      <img src={data.mainImage.asset.url}
+          alt={data.mainImage.alt}
+          />
+      </>))}
+
   </>
-);
+)};
 
 export default Hero;

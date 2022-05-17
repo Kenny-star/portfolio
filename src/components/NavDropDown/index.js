@@ -4,7 +4,7 @@ import { FaLocationArrow } from "react-icons/fa"
 
 import { DropDownContainer, DropDownIcon, DropDownItem, DropDownItemDesc, DropDownItemTitle, DropDownTextContainer } from './NavDropDown'
 
-const NavDropDown = (props) => (
+const NavDropDown = (props) => (/*
   <DropDownContainer active={props.isOpen}>
     <DropDownItem href="#" target="_blank" rel="noreferrer">
       <DropDownIcon>
@@ -33,7 +33,7 @@ const NavDropDown = (props) => (
         <DropDownItemDesc>1405, Angelus Dr, Florissant. Mo</DropDownItemDesc>
       </DropDownTextContainer>
     </DropDownItem>
-  </DropDownContainer>
+  </DropDownContainer>*/<div></div>
 );
 
 export default NavDropDown
