@@ -13,8 +13,8 @@ const Home = () => {
       <Section grid>
         <Hero />
         <BgAnimation />
-        <Timeline />
       </Section>
+      <Timeline />
       <Projects />
       <Technologies />
       
